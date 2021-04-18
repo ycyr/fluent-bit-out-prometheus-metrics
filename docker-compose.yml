@@ -1,0 +1,28 @@
+version: '3'
+
+networks:
+  grafana_net:
+    driver: bridge
+
+services:
+  pushgateway:
+    image: prom/pushgateway:v1.4.0
+    command:
+      - "--web.enable-admin-api"
+      - "--web.enable-lifecycle"
+      - "--web.listen-address=0.0.0.0:9091"
+      - "--log.level=info"
+      - "--log.format=json"
+    ports:
+      - "9091:9091"
+    networks:
+      - grafana_net
+
+  fluent-bit:
+    build: .
+    volumes:
+      - .:/fluent-bit/etc
+    depends_on:
+      - pushgateway
+    networks:
+      - grafana_net
