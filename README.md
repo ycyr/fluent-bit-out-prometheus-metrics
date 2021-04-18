@@ -1,4 +1,4 @@
-# Fluent Bit prometheus_metrics output plugin for Log Derived Metrics.
+#  Fluent Bit Output Plugin for Log Derived Metrics
 
 ![ Show image of grafana dashboard using supported Prometheus metric types](https://github.com/neiman-marcus/fluent-bit-out-prometheus-metrics/blob/staging/out-prometheus-metrics-dashboard.png "Demo grafana dashboard showing supported Prometheus metric types")
 ## Purpose
