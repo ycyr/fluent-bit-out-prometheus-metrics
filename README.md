@@ -1,6 +1,6 @@
 # Fluent Bit prometheus_metrics output plugin for Log Derived Metrics.
 
-![ Show image of grafana dashboard using supported Prometheus metric types](fluent-bit-out-prometheus-metrics/out-prometheus-metrics-dashboard.png "Demo grafana dashboard showing supported Prometheus metric types")
+![ Show image of grafana dashboard using supported Prometheus metric types](https://github.com/neiman-marcus/fluent-bit-out-prometheus-metrics/blob/staging/out-prometheus-metrics-dashboard.png "Demo grafana dashboard showing supported Prometheus metric types")
 ## Purpose
 To add missing Log Derived Metrics functionality to Fluent Bit.  When combined with Grafana Loki, Prometheus, Cortex, and Grafana UI, you get a fully functional Data Observability Platform.  
 
@@ -26,17 +26,22 @@ While the plugin pairs nicely with Grafana Loki's Output plugin, it can be used 
 
 ## Metric Specific Configurations
 
-In addition to keys noted above.
+In addition to keys noted above.<br>
+
+
 ### Counter
-No additional parameters are required for Counter at this time.
+See [Prometheus Counter](https://prometheus.io/docs/concepts/metric_types/#counter) for details.
+No additional parameters are required Counter at this time.
 
 ### Summary
+See [Prometheus Summary](https://prometheus.io/docs/concepts/metric_types/#summary) for details.
 
 | Key | Description | Required for Specific Metric Type | Default | Valid Options | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | metric\_summary\_observe\_key | Single fluent bit field to observe for Summary metric type. | Yes | | | |
 
 ### Histogram
+See [Prometheus Histogram](https://prometheus.io/docs/concepts/metric_types/#histogram) for details.
 
 | Key | Description | Required for Specific Metric Type | Default | Valid Options | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -44,48 +49,34 @@ No additional parameters are required for Counter at this time.
 | metric\_histogram\_observe\_key | Single fluent bit field to observe for Histogram metric type. | Yes | | | |
 
 #### Histogram with Linear Bucket Type
-LinearBuckets creates 'count' buckets, each 'width' wide, where the lowest bucket has an upper bound of 'start'. The final +Inf bucket is not counted and is not included.
-<br>(see https://pkg.go.dev/github.com/prometheus/client_golang/prometheus#LinearBuckets)
+Creates 'count' buckets, each 'width' wide, where the lowest bucket has an upper bound of 'start'. The final +Inf bucket is not counted and is not included.
+See [Prometheus SDK reference - LinearBuckets()](https://pkg.go.dev/github.com/prometheus/client_golang/prometheus#LinearBuckets) for details.
 
 | Key | Description | Required for Specific Metric Type | Default | Valid Options | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| metric\_histogram\_linear\_buckets\_count | Count of buckets | Yes | | | Panics if 'count' is zero or negative.<br>Ex. 5|
+| metric\_histogram\_linear\_buckets\_count | Count of buckets | Yes | | \> 0 | Ex. 5|
 | metric\_histogram\_linear\_buckets\_width | Width of bucket | Yes | | | Ex. 5 |
 | metric\_histogram\_linear\_buckets\_start | Lowest bucket has an upper bound of Start | Yes | | | Ex. 20 |
 
 #### Histogram with Exponential Bucket Type
-ExponentialBuckets creates 'count' buckets, where the lowest bucket has an upper bound of 'start' and each following bucket's upper bound is 'factor' times the previous bucket's upper bound. The final +Inf bucket is not counted and not included.
-<br>(see https://pkg.go.dev/github.com/prometheus/client_golang/prometheus#ExponentialBuckets)
+Creates 'count' buckets, where the lowest bucket has an upper bound of 'start' and each following bucket's upper bound is 'factor' times the previous bucket's upper bound. The final +Inf bucket is not counted and not included.
+See [Prometheus SDK reference - ExponentialBuckets()](https://pkg.go.dev/github.com/prometheus/client_golang/prometheus#ExponentialBuckets) for details.
 
 | Key | Description | Required for Specific Metric Type | Default | Valid Options | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| metric\_histogram\_exponential\_buckets\_count | Count of buckets | Yes | | | Panics if 'count' is zero or negative.<br>Ex. 5|
+| metric\_histogram\_exponential\_buckets\_count | Count of buckets | Yes | | \> 0 | Ex. 5|
 | metric\_histogram\_exponential\_buckets\_factor | Each additional bucket upper bound is Factor times the previous bucket's upper bound | Yes | | | Ex. 1.5 |
 | metric\_histogram\_exponential\_buckets\_start | Lowest bucket has an upper bound of Start | Yes | | | Ex. 20 |
 
 ### Gauge
+See [Prometheus Gauge](https://prometheus.io/docs/concepts/metric_types/#gauge) for details.
 
 | Key | Description | Required for Specific Metric Type | Default | Valid Options | Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | metric\_gauge\_method | Method selected to change the value of the Gauge | Yes | | Set, Add, Sub, Inc, Dec | Set, Add, and Sub require a key as input.  Inc and Dec only increment or decrement the gauge by 1.  |
-
-#### Gauge with Set Method
-
-| Key | Description | Required for Specific Metric Type | Default | Valid Options | Notes |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| metric\_gauge\_set\_key | Single fluent bit field as input to Set method. | Yes | | | |
-
-#### Gauge with Add Method
-
-| Key | Description | Required for Specific Metric Type | Default | Valid Options | Notes |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| metric\_gauge\_add\_key | Single fluent bit field as input to Add method. | Yes | | | |
-
-#### Gauge with Sub Method
-
-| Key | Description | Required for Specific Metric Type | Default | Valid Options | Notes |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| metric\_gauge\_sub\_key | Single fluent bit field as input to Sub method. | Yes | | | |
+| metric\_gauge\_set\_key | Single fluent bit field as input to Set method. | Yes with Set| | | |
+| metric\_gauge\_add\_key | Single fluent bit field as input to Add method. | Yes with Add| | | |
+| metric\_gauge\_sub\_key | Single fluent bit field as input to Sub method. | Yes with Sub| | | |
 
 ## Example Configurations
 The example folder contains a set of configurations showing each type of metric currently supported by the plugin plus Grafana Loki logs.  These were used to create the dashboard pictured above.
