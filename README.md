@@ -1,6 +1,6 @@
 # Fluent Bit prometheus_metrics output plugin for Log Derived Metrics.
 
-![ Show image of grafana dashboard using supported Prometheus metric types](../../../../github/fluent-bit-out-prometheus-metrics/out-prometheus-metrics-dashboard.png "Demo grafana dashboard showing supported Prometheus metric types")
+![ Show image of grafana dashboard using supported Prometheus metric types](fluent-bit-out-prometheus-metrics/out-prometheus-metrics-dashboard.png "Demo grafana dashboard showing supported Prometheus metric types")
 ## Purpose
 To add missing Log Derived Metrics functionality to Fluent Bit.  When combined with Grafana Loki, Prometheus, Cortex, and Grafana UI, you get a fully functional Data Observability Platform.  
 
@@ -92,7 +92,7 @@ The example folder contains a set of configurations showing each type of metric 
 
 ---
 ## Using the demo environment
-####Requirements:
+#### Requirements:
 * Either Docker Desktop, or docker and docker-compose.
 * Make
 * Curl
@@ -117,7 +117,6 @@ Execute repeatedly to see the metrics generated using the plugin.
 ```
 make show-metrics
 ```
-
 
 ### Show current logs
 Execute repeatedly to see the latest container logs
@@ -145,10 +144,9 @@ https://grafana.com/oss/prometheus/
 <br>
 https://grafana.com/oss/cortex/
 
-<br>
-Author: Michael Marshall<br> 
-Reference Talk: 
-[FluentCon 2021: Fluent Bit - Swiss Army Tool of Observability Data Ingestion](https://sched.co/iKok)
+
+**Author:** Michael Marshall<br> 
+**Reference Talk:** [FluentCon 2021: Fluent Bit - Swiss Army Tool of Observability Data Ingestion](https://sched.co/iKok)
 
  
 
