@@ -1,4 +1,4 @@
-all: build start logs wait show-metric
+all: build start logs wait show-metrics
 
 clean:
 	rm -rf *.so *.h *~
@@ -24,7 +24,7 @@ logs:
 restart-fluent-bit:
 	docker-compose restart fluent-bit
 
-show-metric:
+show-metrics:
 	curl -s http://127.0.0.1:9091/metrics | grep fluentbit
 
 wait:
