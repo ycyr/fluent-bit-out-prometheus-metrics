@@ -16,7 +16,6 @@ FROM fluent/fluent-bit:1.6.9
 COPY --from=gobuilder /root/out_prometheus_metrics.so /fluent-bit/bin/
 COPY --from=gobuilder /root/fluent-bit.conf /fluent-bit/etc/
 COPY --from=gobuilder /root/plugins.conf /fluent-bit/etc/
-COPY --from=gobuilder /root/sampledata.log /fluent-bit/etc/
 
 EXPOSE 2020
 
