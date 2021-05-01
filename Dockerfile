@@ -5,10 +5,14 @@ WORKDIR /root
 ENV GOOS=linux\
     GOARCH=amd64
 
-COPY / /root/
+COPY go.mod .
+COPY go.sum .
 
 RUN go mod edit -replace github.com/fluent/fluent-bit-go=github.com/fluent/fluent-bit-go@master
 RUN go mod download
+
+COPY . .
+
 RUN make build-plugin
 
 FROM fluent/fluent-bit:1.6.9
