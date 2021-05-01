@@ -80,6 +80,7 @@ See [Prometheus Gauge](https://prometheus.io/docs/concepts/metric_types/#gauge) 
 
 ## Example Configurations
 The example folder contains a set of configurations showing each type of metric currently supported by the plugin plus Grafana Loki logs.  These were used to create the dashboard pictured above.
+* Check out [https://github.com/neiman-marcus/fluent-bit-data-observability-platform](https://github.com/neiman-marcus/fluent-bit-data-observability-platform) for a full environment leveraging the example configuration. 
 
 ---
 ## Using the demo environment
@@ -136,8 +137,17 @@ https://grafana.com/oss/prometheus/
 https://grafana.com/oss/cortex/
 
 
-**Author:** Michael Marshall<br> 
 **Reference Talk:** [FluentCon 2021: Fluent Bit - Swiss Army Tool of Observability Data Ingestion](https://sched.co/iKok)
 
- 
+# Author
 
+* [**Michael Marshall**](mailto:michael_marshall@neimanmarcus.com) - Project creation and development.
+
+## Conduct / Contributing / License
+
+* Refer to our contribution guidelines to contribute to this project. See [CONTRIBUTING.md](https://github.com/neiman-marcus/nmg-sonarqube/tree/master/CONTRIBUTING.md).
+* All contributions must follow our code of conduct. See [CONDUCT.md](https://github.com/neiman-marcus/nmg-sonarqube/tree/master/CONDUCT.md).
+* This project is licensed under the Apache 2.0 license. See [LICENSE](https://github.com/neiman-marcus/nmg-sonarqube/tree/master/LICENSE).
+
+## Acknowledgments
+Thank you to the teams who create and maintain the individual projects listed above.
