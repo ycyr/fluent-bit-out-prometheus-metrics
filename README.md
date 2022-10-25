@@ -1,4 +1,4 @@
-# This project orignally was developped by **Michael Marshall**, unfortunately the original repo is not available, this is a copy
+# This project orignally was developped by **Michael Marshall**, unfortunately the original repo is not longer available, this is a copy
  
 #  Fluent Bit Output Plugin for Log Derived Metrics
 
