@@ -1,6 +1,8 @@
+# This project orignally was developped by **Michael Marshall**, unfortunately the original repo is not longer available, this is a copy
+ 
 #  Fluent Bit Output Plugin for Log Derived Metrics
 
-![ Show image of grafana dashboard using supported Prometheus metric types](https://github.com/neiman-marcus/fluent-bit-out-prometheus-metrics/blob/staging/out-prometheus-metrics-dashboard.png "Demo grafana dashboard showing supported Prometheus metric types")
+![ Show image of grafana dashboard using supported Prometheus metric types](https://github.com/ycyr/fluent-bit-out-prometheus-metrics/blob/staging/out-prometheus-metrics-dashboard.png "Demo grafana dashboard showing supported Prometheus metric types")
 ## Purpose
 To add missing Log Derived Metrics functionality to Fluent Bit.  When combined with Grafana Loki, Prometheus, Cortex, and Grafana UI, you get a fully functional Data Observability Platform.  
 
